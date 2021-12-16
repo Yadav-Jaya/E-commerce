@@ -1,8 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color:#ccd1db;
+}
+h1{
+  color: #071026 ;            
+} 
+p{
+  color: #071026;
+}
+header{
+  background-color: #efb833  ;
+}
 .App {
   text-align: center;
+  position: relative;
 }
 
-.App-logo {
+/* Colors
+        orange #ff6d3d 
+        yellow #efb833 
+        grayish #ccd1db 
+        dardBlue #071026 
+*/
+/*.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +59,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+}*/
