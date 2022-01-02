@@ -1,23 +1,14 @@
-import { useState } from "react"
+import {  useState } from "react"
 import styled from "styled-components"
 import Product from "../Product/Product"
 import withFetch from "../withFetch"
 
-const Category = ({loading,data}) => {
+const Category = ({data}) => {
     const all = 'https://fakestoreapi.com/products'
     const [category,setCategory] = useState(all)
     const ProductWithFetch = withFetch(Product,category)
     const handleClick = (item) => {
         setCategory(`https://fakestoreapi.com/products/category/${item}`)
-    }
-    if(loading){
-        return (
-            <div style={{position:'absolute', top:'50vh', left:'50vw'}}>
-                <h1>Loading....</h1>
-                <p>please wait</p>
-            </div>
-            
-        )
     }
     return (
         <>
@@ -30,15 +21,14 @@ const Category = ({loading,data}) => {
                     
                 </div>
                 <button className='showall' onClick={()=> setCategory(all)}>Show All</button>
-
             </CategoryStyle>
             <ProductWithFetch/>
-        </>
 
+        </>
     )
 }
 
-export default Category
+export default withFetch(Category,'https://fakestoreapi.com/products/categories')
 
 
 const CategoryStyle = styled.aside`
@@ -53,6 +43,10 @@ const CategoryStyle = styled.aside`
     h1{
         color:#ccd1db;
     }
+    button:hover{
+        background-color: transparent;
+        color: #efb833;
+    }
     .links{
         padding: 2rem;
         display: flex;
@@ -60,16 +54,19 @@ const CategoryStyle = styled.aside`
         button{
             margin: 1rem;
             color: #071026;
-            background-color: #ff6d3d; // #efb833 ;
-            border: none;
+            background-color: #ccd1db; // #efb833 ;
             border-radius: 25px;
-            padding: 0.4rem 1rem;
+            padding: 0.4rem;
+        }
+        button:hover{
+            border-inline: 5px solid #efb833;
+            font-weight: bolder;
         }
     }
     .showall{
             background-color: #efb833;
             padding: 0.4rem 1.2rem;
-            border: none;
             border-radius: 5px;
+            border: 1px solid #efb833;
         }
 `

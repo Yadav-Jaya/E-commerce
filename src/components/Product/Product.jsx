@@ -1,13 +1,5 @@
 import ProductStyle from './ProductStyle'
-const Product = ({loading,data}) => {
-    if(loading){
-        return (
-            <div style={{position:'absolute', top:'50vh', left:'50vw'}}>
-                <h1>Loading....</h1>
-                <p>please wait</p>
-            </div>
-        )
-    }
+const Product = ({data, addToCart}) => {
     return ( 
         <ProductStyle>
             {
@@ -23,7 +15,7 @@ const Product = ({loading,data}) => {
                         <p>{item.description}</p>
                         <div className="buttons">
                             <button className='buy'>Buy Now</button>
-                            <button>Add to Cart</button>
+                            <button onClick={() => addToCart(item.id)}>Add to Cart</button>
                         </div>
                     </div>
                 </div> )
